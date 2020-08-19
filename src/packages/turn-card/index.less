@@ -1,0 +1,50 @@
+.m-turncard {
+  position: relative;
+  transform-style: preserve-3d;
+
+  .m-turncard-inner {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+  }
+}
+
+.m-turncard-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-size: 100% 100%;
+  backface-visibility: hidden;
+}
+
+.m-turncard-item {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-size: 100% 100%;
+  transform: rotate3d(0, 1, 0, 180deg);
+  backface-visibility: hidden;
+}
+
+.m-turncard-title {
+  text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 0 16px;
+  user-select: none;
+}
+
+.m-turncard-image {
+  position: absolute;
+  width: 100%;
+  left: 50%;
+  transform: translate(-50%);
+}
