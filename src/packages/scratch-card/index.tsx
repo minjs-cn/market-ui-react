@@ -26,27 +26,28 @@ interface Props {
 }
 
 const App = ({
-  option,
-  width = 300,
-  height = 180,
-  bgImage,
-  bgColor,
-  padding = [0],
-  scratchBgColor = '#eee',
-  scratchBgImage,
-  isCleaned,
-  isCleanRatio,
-  onTouchStart = noop,
-  onTouchMove = noop,
-  onTouchEnd = noop
+  option, // 奖品项
+  width = 300, // 宽
+  height = 180, // 高
+  bgImage, // 背景图片
+  bgColor, // 背景颜色
+  padding = [0], // 边距
+  scratchBgColor = '#eee', // 涂层颜色
+  scratchBgImage, // 涂层图片
+  isCleaned, // 是否满足比例下，自动清除
+  isCleanRatio, // 比例
+  onTouchStart = noop, // 开始刮
+  onTouchMove = noop, // 刮ing
+  onTouchEnd = noop // 结束刮的动作
 }: Props) => {
+  // 容器样式
   const boxStyle = {
     width: `${width}px`,
     height: `${height}px`,
     backgroundImage: `url(${bgImage})`,
     backgroundColor: bgColor
   }
-
+  // 计算canvas的宽高
   const { top, right, bottom, left } = useMemo(() => padding2rect(padding), [padding])
   const cWidth = useMemo(() => width - left - right, [width, left, right])
   const cHeight = useMemo(() => height - top - bottom, [height, top, bottom])

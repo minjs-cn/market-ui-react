@@ -46,45 +46,47 @@ const singleAngle = allAngle / optionSize
 const defBgImage = '//yun.tuisnake.com/h5-mami/activity/turnCircle/v8/imgs/button.png'
 
 const BigWheel = ({
-  options,
-  idled = true,
-  duration = 1000,
-  index = 0,
-  ease,
-  size = 300,
-  bgColor,
-  btnImage = defBgImage,
-  fontColor,
-  fontSize,
-  bgImage,
-  onStart,
-  onComplete,
-  onItemClick = noop
+  options, // 奖品项
+  idled = true, // 是否空闲状态
+  duration = 1000, // 抽奖停顿时间
+  index = 0, // 转到第几个奖品
+  ease, // 抽奖运动函数
+  size = 300, // 奖盘大小
+  bgColor, // 背景颜色
+  btnImage = defBgImage, // 参与按钮背景图片
+  fontColor, // 奖品文字颜色
+  fontSize, // 奖品文字大小
+  bgImage, // 背景图片
+  onStart, // 开始
+  onComplete, // 停下
+  onItemClick = noop // 点击奖品项
 }: Props) => {
   if (options.length !== optionSize) throw new Error(`奖品选项必须要${optionSize}个`)
 
+  // 抽奖结束
   const onGameComplete = useCallback(
     (i: number) => {
       onComplete(i)
     },
     [onComplete]
   )
-
+  // 转盘角度
   const [state, setState] = useState({
     angle: startAngle
   })
-
+  // 转盘旋转时间
   const durationTime = useMemo(() => {
     if (idled) return duration * 10
     return duration
   }, [duration, idled])
-
+  // 转盘运动时间函数
   const easeFn = useMemo(() => {
     if (idled) return easing.linear
     if (isUndef(ease)) return easing.easeInOut
     return ease
   }, [ease, idled])
 
+  // 每次更新的时候
   useEffect(() => {
     let loop = 0
     let angle = 0

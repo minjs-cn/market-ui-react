@@ -26,21 +26,22 @@ interface Props {
 }
 
 const App = ({
-  option,
-  status = 'back',
-  width = 100,
-  height = 150,
-  fontColor = '',
-  fontSize = 16,
-  duration = 2000,
-  frontBgColor = '',
-  frontBgImage = '',
-  backBgColor = '',
-  backBgImage = '',
-  padding = [0],
-  onStart,
-  onItemClick = noop
+  option, // 奖品项
+  status = 'back', // 状态 背面还是正面
+  width = 100, // 牌子宽度
+  height = 150, // 牌子高度
+  fontColor = '', // 文字颜色
+  fontSize = 16, // 文字大小
+  duration = 2000, // 翻转速度
+  frontBgColor = '', // 正面背景颜色
+  frontBgImage = '', // 正面背景图片
+  backBgColor = '', // 反面背景颜色
+  backBgImage = '', // 反面背景图片
+  padding = [0], // 正面边距
+  onStart, // 开始
+  onItemClick = noop // 点击正面，即奖品项
 }: Props) => {
+  // 容器样式
   const boxstyle = useMemo(
     () => ({
       width: `${width}px`,
@@ -48,7 +49,7 @@ const App = ({
     }),
     [width, height]
   )
-
+  // 反面样式
   const backStyle = useMemo(
     () => ({
       backgroundImage: `url(${backBgImage})`,
@@ -56,7 +57,7 @@ const App = ({
     }),
     [backBgImage, backBgColor]
   )
-
+  // 正面样式
   const frontStyle = useMemo(
     () => ({
       backgroundImage: `url(${frontBgImage})`,
@@ -65,7 +66,7 @@ const App = ({
     }),
     [frontBgImage, frontBgColor, padding]
   )
-
+  // 奖品标题
   const titlestyle = useMemo(
     () => ({
       fontSize: `${fontSize}px`,
@@ -73,7 +74,7 @@ const App = ({
     }),
     [fontSize, fontColor]
   )
-
+  // 奖品图片
   const imageStyle = useMemo(
     () => ({
       width: `${option.size || width}px`,
@@ -81,11 +82,11 @@ const App = ({
     }),
     [option, width, padding]
   )
-
+  // 卡片样式
   const [cardStyle, setCardStyle] = useState({
     transform: ''
   })
-
+  // 更改卡片样式启动翻转效果
   useEffect(() => {
     if (status === 'front') {
       setCardStyle({
@@ -97,11 +98,11 @@ const App = ({
       })
     }
   }, [status])
-
+  // 点击背面
   const onGameStart = useCallback(() => {
     onStart(option)
   }, [onStart, option])
-
+  // 点击正面
   const onGameItemClick = useCallback(() => {
     onItemClick(option)
   }, [onItemClick, option])
