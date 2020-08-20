@@ -1,6 +1,7 @@
 import TurnCard from '../components/turn-card'
 import TurnCircle from '../components/turn-circle'
 import ScratchCard from '../components/scratch-card'
+import SlotMachine from '../components/slot-machine'
 
 const routes = [
   {
@@ -17,6 +18,11 @@ const routes = [
     path: '/scratch-card',
     title: '刮刮卡',
     component: ScratchCard
+  },
+  {
+    path: '/slot-machine',
+    title: '老虎机',
+    component: SlotMachine
   }
 ]
 

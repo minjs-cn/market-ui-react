@@ -40,15 +40,30 @@ const App = () => {
   }, [])
 
   return (
-    <div
-      style={{
-        position: 'absolute',
-        left: '50px',
-        top: '100px'
-      }}
-    >
+    <div>
       <ScratchCard {...props} option={option} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd} />
-      <ScratchCard.canvas width={200} height={200} onTouchStart={onTouchStart} {...option} />
+      <div
+        style={{
+          position: 'relative',
+          marginTop: 20,
+          width: 200,
+          height: 160,
+          backgroundColor: 'red',
+          padding: '10px'
+        }}
+      >
+        <img
+          style={{
+            position: 'absolute',
+            left: 50,
+            top: 30,
+            width: 100
+          }}
+          src={option.image}
+          alt={option.title}
+        />
+        <ScratchCard.canvas width={180} height={140} onTouchStart={onTouchStart} {...option} />
+      </div>
     </div>
   )
 }
