@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react'
-import { SlotMachine } from 'src/packages'
-import 'src/packages/slot-machine/index.less'
+import SlotMachine from './index'
+import './index.less'
 
 const App = () => {
   const [target, setTarget] = useState([0, 0, 0])

@@ -1,7 +1,7 @@
-import TurnCard from '../components/turn-card'
-import TurnCircle from '../components/turn-circle'
-import ScratchCard from '../components/scratch-card'
-import SlotMachine from '../components/slot-machine'
+import TurnCard from '../packages/turn-card/example'
+import TurnCircle from '../packages/turn-circle/example'
+import ScratchCard from '../packages/scratch-card/example'
+import SlotMachine from '../packages/slot-machine/example'
 
 const routes = [
   {

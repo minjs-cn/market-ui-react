@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react'
-import { ScratchCard } from 'src/packages'
-import 'src/packages/scratch-card/index.less'
+import ScratchCard from './index'
+import './index.less'
 
 import optionImage from '../turn-circle/images/smile.png'
 import bgImage from './images/bgImage.png'

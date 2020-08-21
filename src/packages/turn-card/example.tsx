@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { TurnCard } from 'src/packages'
-import 'src/packages/turn-card/index.less'
+import TurnCard from './index'
+import './index.less'
 
 import optionImage from '../turn-circle/images/smile.png'
 import backBgImage from './images/backBgImage.png'

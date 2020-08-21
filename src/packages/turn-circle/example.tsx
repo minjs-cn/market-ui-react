@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react'
-import { TurnCircle } from 'src/packages'
+import TurnCircle from './index'
 
-import 'src/packages/turn-circle/index.less'
+import './index.less'
 
 import optionImage from './images/smile.png'
 import bgImage from './images/bgImage.png'
